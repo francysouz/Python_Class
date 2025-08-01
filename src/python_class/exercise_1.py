@@ -19,5 +19,6 @@ def cutlowX(limit: int, mult: int) -> int:
 def belowX(limit: int) -> int:
     resul3 = cutlowX(limit, 3)
     resul5 = cutlowX(limit, 5)
+    resul15 = cutlowX(limit, 15)
 
-    return resul3 + resul5
+    return resul3 + resul5 - resul15
