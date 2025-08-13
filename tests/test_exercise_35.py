@@ -1,12 +1,18 @@
-from python_class.exercise_35 import nbRotate, prime, rotate, isCircularPrime
+from python_class.exercise_35 import (
+    isCircularPrime,
+    nbRotate,
+    prime,
+    rotate,
+    takeAllCircular,
+)
 
 
 def test_example() -> None:
-    assert True == prime(2)
+    assert prime(2)
 
 
 def test_example1() -> None:
-    assert True == prime(197)
+    assert prime(197)
 
 
 def test_example2() -> None:
@@ -18,12 +24,16 @@ def test_example3() -> None:
 
 
 def test_example4() -> None:
-    assert {0, 197, 719, 971} == takeAllCircular(197)
+    assert 13 == takeAllCircular(100)
 
 
 def test_example5() -> None:
-    assert True == isCircularPrime(197)
+    assert isCircularPrime(197)
 
 
 def test_example6() -> None:
-    assert False == isCircularPrime(8)
+    assert not isCircularPrime(8)
+
+
+def test_example7() -> None:
+    assert 55 == takeAllCircular(1_000_000)

@@ -5,20 +5,24 @@
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
 
-def cutlowX(limit: int, mult: int) -> int:
-    result = [0]
+from typing import Callable
+
+
+def cutLowX(mult: int, condition: Callable[[int], bool]) -> set[int]:
+    result = {0}
     counter = 1
+
     while True:
-        if mult * counter >= limit:
+        if condition(counter):  # mult * counter >= limit:
             break
-        result.append(mult * counter)
+        result.add(mult * counter)
         counter = counter + 1
-    return sum(result)
+
+    return result
 
 
 def belowX(limit: int) -> int:
-    resul3 = cutlowX(limit, 3)
-    resul5 = cutlowX(limit, 5)
-    resul15 = cutlowX(limit, 15)
+    result = cutLowX(3, lambda counter: 3 * counter >= limit)
+    result.update(cutLowX(5, lambda counter: 5 * counter >= limit))
 
-    return resul3 + resul5 - resul15
+    return sum(result)

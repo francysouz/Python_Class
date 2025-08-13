@@ -6,18 +6,15 @@
 
 # verifica se é primo
 def prime(n: int) -> bool:
-
     if n < 2:
         return False
-
     if n == 2:
         return True
-
-    for i in range(2, n - 1):
-
+    if n % 2 == 0:
+        return False
+    for i in range(3, int(n**0.5) + 1, 2):
         if n % i == 0:
             return False
-
     return True
 
 
@@ -52,12 +49,19 @@ def isCircularPrime(numb: int) -> bool:
     return True
 
 
-# armazena os numeros circulares
 def takeAllCircular(numb: int) -> set[int]:
-    result = set()
+    """armazena os numeros circulares
+
+    Args:
+        numb (int): limit
+
+    Returns:
+        set[int]: all permutation
+    """
+    result: set[int] = set()
 
     for pri in range(2, numb):
         if isCircularPrime(pri):
             result.add(pri)
 
-    return result
+    return len(result)

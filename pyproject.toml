@@ -22,6 +22,10 @@ pytest-profiling = "^1.8.1"
 snakeviz = "^2.2.2"
 mypy = "1.15"
 radon = "5.1"
+pylint = "^3.3.7"
+complexipy = "^3.3.0"
+ruff = "^0.12.8"
+pytest-icdiff = "^0.9"
 
 [tool.pytest.ini_options]
 addopts = ["--import-mode=importlib", "-ra", "-q", "-p", "profiling"]
